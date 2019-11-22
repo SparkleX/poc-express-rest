@@ -1,15 +1,14 @@
+import "reflect-metadata"
 import * as bodyParser from "body-parser";
 import * as morgan from "morgan";
-import "reflect-metadata";
 import {InversifyExpressServer} from "inversify-express-utils";
-import { container } from "./inversify.config";
-import "./controller"
+import {container} from "./inversify.config";
 import {initDatabase} from "./init"
-import {global} from "./global"
+import "./controller"
 
 
 async function main() {
-	global.pool = await initDatabase();
+	global['pool'] = await initDatabase();
 	let server = new InversifyExpressServer(container);
 	server.setConfig(app => {
 		app.use(morgan("tiny"));

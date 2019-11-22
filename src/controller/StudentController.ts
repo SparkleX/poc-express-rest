@@ -1,30 +1,45 @@
-import {controller,httpGet} from "inversify-express-utils";
+import {controller,httpGet, httpPost, httpPut, httpDelete, requestParam, request} from "inversify-express-utils";
 import {Transaction, RepoHandlerImpl} from "../user/Transaction"
 import {CrudRepositoryAdapter, AnsiAdapter } from "core-repository-crud";
 import {StudentRepo } from "../repository/StudentRepo";
 import {RepositoryFactory } from "core-repository";
 import { Student } from "../domain/Student";
+import * as express from "express"
 
-@controller("/api/student")
+
+@controller("/student")
 export class StudentController{
-	@httpGet("/get", Transaction)
-	public async get(): Promise<any> {
-		var handler = new RepoHandlerImpl();
-		var adapter:CrudRepositoryAdapter = new AnsiAdapter();
-		var repoStudent:StudentRepo = RepositoryFactory.newRepository(StudentRepo, handler, [handler, adapter]);
-		return await repoStudent.findAll();
-	} 
-	@httpGet("/create", Transaction)
-	public async create(): Promise<any> {
-		var handler = new RepoHandlerImpl();
-		var adapter:CrudRepositoryAdapter = new AnsiAdapter();
-		var repoStudent:StudentRepo = RepositoryFactory.newRepository(StudentRepo, handler, [handler, adapter]);
 
-		var student = new Student();
-		student.id = 1;
-		student.firstName = "3";
-		student.lastName = "Zhang";
-		await repoStudent.insert(student);		
+	private repoStudent:StudentRepo;
+	constructor () {
+		var handler = new RepoHandlerImpl();
+		var adapter:CrudRepositoryAdapter = new AnsiAdapter();
+		this.repoStudent = RepositoryFactory.newRepository(StudentRepo, handler, [handler, adapter]);
+	}
+
+	@httpGet("/", Transaction)
+	public async findAll(): Promise<any> {
+		return await this.repoStudent.findAll();
+	}
+
+	@httpGet("/:id", Transaction)
+	public async get(@requestParam("id") id: Number): Promise<any> {
+		return await this.repoStudent.findById(id);
+	} 
+	@httpPost("/", Transaction)
+	public async create(@request() req: express.Request): Promise<any> {
+		var data = req.body;
+		await this.repoStudent.insert(data);
 		return "OK";
-	} 	
+	} 
+	@httpPut("/api/student/:id", Transaction)
+	public async update(@requestParam("id") id: Number, @request() req: express.Request): Promise<any> {
+		await this.repoStudent.updateById(id, req.body);
+		return "OK";
+	}
+	@httpDelete("/:id", Transaction)
+	public async delete(@requestParam("id") id: Number): Promise<any> {
+		await this.repoStudent.deleteById(1);
+		return "deleted";
+	}			
 }
