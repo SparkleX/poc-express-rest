@@ -1,29 +1,24 @@
-import {controller,httpGet, httpPost, httpPut, httpDelete, requestParam, request} from "inversify-express-utils";
-import {Transaction, RepoHandlerImpl} from "../user/Transaction"
-import {CrudRepositoryAdapter, AnsiAdapter } from "core-repository-crud";
+import {controller,httpGet, httpPost, httpPut, httpDelete, requestParam, BaseHttpController, request} from "inversify-express-utils";
+import {Transaction} from "../user/Transaction"
 import {StudentRepo } from "../repository/StudentRepo";
-import {RepositoryFactory } from "core-repository";
 import { Student } from "../domain/Student";
 import * as express from "express"
-
+import { inject} from "inversify";
+import {TYPES} from "../Types"
 
 @controller("/student")
-export class StudentController{
+export class StudentController extends BaseHttpController{
+	
+	@inject(TYPES.StudentRepo) private repoStudent: StudentRepo;
 
-	private repoStudent:StudentRepo;
-	constructor () {
-		var handler = new RepoHandlerImpl();
-		var adapter:CrudRepositoryAdapter = new AnsiAdapter();
-		this.repoStudent = RepositoryFactory.newRepository(StudentRepo, handler, [handler, adapter]);
-	}
 
 	@httpGet("/", Transaction)
-	public async findAll(): Promise<any> {
+	public async findAll(): Promise<Student[]> {
 		return await this.repoStudent.findAll();
 	}
 
 	@httpGet("/:id", Transaction)
-	public async get(@requestParam("id") id: Number): Promise<any> {
+	public async get(@requestParam("id") id: Number): Promise<Student> {
 		return await this.repoStudent.findById(id);
 	} 
 	@httpPost("/", Transaction)
@@ -32,7 +27,7 @@ export class StudentController{
 		await this.repoStudent.insert(data);
 		return "OK";
 	} 
-	@httpPut("/api/student/:id", Transaction)
+	@httpPut("/:id", Transaction)
 	public async update(@requestParam("id") id: Number, @request() req: express.Request): Promise<any> {
 		await this.repoStudent.updateById(id, req.body);
 		return "OK";
@@ -41,5 +36,5 @@ export class StudentController{
 	public async delete(@requestParam("id") id: Number): Promise<any> {
 		await this.repoStudent.deleteById(1);
 		return "deleted";
-	}			
+	}
 }
