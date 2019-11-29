@@ -1,15 +1,28 @@
-import {SqlJsConnectionPool, initSqlJs} from 'db-conn-sqljs';
-import {Connection, ConnectionPool} from "db-conn";
-
+import { SqlJsConnectionPool, SqlJsConnection, SqlJsDdlBuilder, initSqlJs } from 'db-conn-sqljs';
+import { Connection, ConnectionPool, DdlBuilder, Metadata, MdTable } from "db-conn"
+import * as fs from 'fs'
 
 export async function initDatabase ():Promise<ConnectionPool> {
 	var SQL = await initSqlJs();
 	var pool:ConnectionPool = new SqlJsConnectionPool();
 	await pool.open(SQL);
 	var conn:Connection = await pool.getConnection();
-	await conn.execute('create table Student (id integer primary key, firstName, lastName)');
-	await conn.execute(`insert into Student(id, firstName, lastName) values(100, 'Wu', 'Wang')`);
-	await conn.execute(`insert into Student(id, firstName, lastName) values(101, 'Liu', 'Liu')`);
+
+
+	var table:MdTable = await Metadata.load("resources/table/Account.table.json");
+	var ddlBuilder:DdlBuilder = new SqlJsDdlBuilder();
+	var sqls = ddlBuilder.createTable(table);
+	await conn.execute(sqls[0]);
+
+	var sql = ddlBuilder.insertSql(table);
+	console.dir(sql);
+	let rawdata = fs.readFileSync("resources/data/Account.data.json").toString();
+	var data = JSON.parse(rawdata);
+	var paramsArray = ddlBuilder.insertData(table, data);
+	for(let param of paramsArray) {
+		await conn.execute(sql, param);
+	}
+
 
 	return pool;
 }

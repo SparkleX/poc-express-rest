@@ -1,0 +1,25 @@
+<mvc:View
+	id="idView"
+	controllerName="c1.app.ORDR.controller.GeneralPage"
+	xmlns:layout="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:form="sap.ui.layout.form"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:widget="c1.core.widget"
+	width="100%">
+	<Button id="idClick" text="Click" press="onInnerDummy"/>
+	<layout:BlockLayout>
+		<layout:BlockLayoutRow>
+			<layout:BlockLayoutCell title="Basic Information">
+				<widget:LabelLinkInput id="idTest" label="Business Partner Code" type="Number" dataValue="{/bpId}" dataFormat = "ORDR.bpId"/>
+			</layout:BlockLayoutCell>
+			<layout:BlockLayoutCell	title="Document Status">
+				<widget:LabelFormatInput label="Document Number" dataValue="{/id}" dataFormat = "ORDR.bpId"/>
+				<widget:LabelDatePicker label="Document Date"  dataValue="{/createDate}" dataFormat = "ORDR.createDate"/>
+				<widget:LabelSelect  label="Document Status" dataValue="{/docStatus}" dataFormat="ORDR.docStatus"/>
+				<widget:CheckBox dataValue="{/docStatus}" dataFormat="ORDR.docStatus" label="Closed" dataYes="C" dataNo="O"/>
+			</layout:BlockLayoutCell>
+		</layout:BlockLayoutRow>
+	</layout:BlockLayout>	
+</mvc:View>

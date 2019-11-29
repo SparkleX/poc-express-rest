@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog noDataText="No Data" title="Choose From List" search="_onSearch" confirm="_onConfirm" cancel="_onClose" items="{cfl>/}">
+		<ColumnListItem>
+			<cells>
+				<ObjectIdentifier text="{cfl>id}" />
+				<Text text="{cfl>itemCode}" />
+				<Text text="{cfl>itemName}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column>
+				<header>
+					<Text text="ID" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="Item Code" />
+				</header>
+			</Column>
+			<Column>
+				<header>
+					<Text text="Item Name" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

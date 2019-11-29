@@ -1,0 +1,52 @@
+<mvc:View id="idBpDetail" controllerName="c1.app.OADM.controller.Detail"
+		  xmlns:uxap="sap.uxap"
+		  xmlns:m="sap.m"
+		  xmlns:layout="sap.ui.layout"
+		  xmlns:table="sap.ui.table"
+		  xmlns:mvc="sap.ui.core.mvc"
+		  xmlns:widget="c1.core.widget"
+		  displayBlock="true">
+			<uxap:ObjectPageLayout id="objectPageLayout" showTitleInHeaderContent="true" alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false" headerContentPinnable="true" isChildPage="true" enableLazyLoading="false" upperCaseAnchorBar="false">
+				<uxap:headerTitle>
+					<uxap:ObjectPageDynamicHeaderTitle areaShrinkRatio="1:1.6:1.6">
+						<uxap:expandedHeading>
+							<m:Title text="General Settings"/>
+						</uxap:expandedHeading>
+
+						<uxap:snappedHeading>
+							<m:Title text="General Settings"/>
+						</uxap:snappedHeading>
+						<uxap:actions>
+							<uxap:ObjectPageHeaderActionButton id="editButton" text="Edit" type="Emphasized" hideText="false" press="onEdit" />
+							<uxap:ObjectPageHeaderActionButton id="testButton" type="Transparent" text="Test" hideText="false" hideIcon="true" press="onTest" />
+
+						</uxap:actions>
+				</uxap:ObjectPageDynamicHeaderTitle>
+				</uxap:headerTitle>
+
+				<uxap:sections>
+					<uxap:ObjectPageSection id="idSectionA" title="AAA">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection id="idGeneralPage" title="General">
+								<uxap:blocks>
+									<layout:BlockLayout>
+										<layout:BlockLayoutRow>
+																			
+										</layout:BlockLayoutRow>
+										
+									</layout:BlockLayout>									
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+				</uxap:sections>
+				<uxap:footer>
+					<m:OverflowToolbar>
+						<m:ToolbarSpacer />
+						<m:Button type="Emphasized" text="Save" press="onSave" />
+						<m:Button type="Default" text="Cancel" press="onCancel" />
+					</m:OverflowToolbar>
+				</uxap:footer>
+			</uxap:ObjectPageLayout>
+
+</mvc:View>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>C1</title>
+
+	<script src="./bootstrap/shell.js" id="sap-ushell-bootstrap"></script>
+    <!-- TODO: Using online version of UI5. After using a build tool, we can use a local ui5 distribution -->
+    <script id="sap-ui-bootstrap"
+            src="http://sapui5.hana.ondemand.com/1.67.0/resources/sap-ui-core.js"
+            data-sap-ui-libs="sap.ushell, sap.collaboration, sap.m, sap.ui.layout"
+            data-sap-ui-theme="sap_belize_plus"
+            data-sap-ui-compatVersion="edge"
+            data-sap-ui-preload="async"
+            data-sap-ui-frameOptions='allow'
+            data-sap-ui-xx-bindingSyntax='complex'
+	    data-sap-ui-resourceroots='{
+			"c1.app": "/app",
+			"c1.share": "/share",
+			"c1.core": "/core"}
+		'> 
+    </script>
+    
+
+    <script>
+      sap.ui.getCore().attachInit(function () {
+        sap.ushell.Container.createRenderer().placeAt("content");
+      });
+    </script>
+</head>
+
+<body class="sapUiBody" id="content">
+</body>
+</html>

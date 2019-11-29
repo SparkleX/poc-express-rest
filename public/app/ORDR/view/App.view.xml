@@ -1,0 +1,9 @@
+<mvc:View controllerName="c1.app.ORDR.controller.App"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" >
+	<App id="app1"/>
+	<!-- <Page title="{i18n>list/title}">
+		<content>
+			<App id="app1" />
+		</content>
+	</Page> -->
+</mvc:View>

@@ -1,0 +1,37 @@
+{
+	"ORDR-App": {
+		"additionalInformation": "SAPUI5.Component=c1.app.ORDR",
+		"applicationType": "URL",
+		"url": "/app/ORDR",
+		"description": "View, modify orders",
+		"title": "Sales Order"
+	},
+	"OCRD-App": {
+		"additionalInformation": "SAPUI5.Component=c1.app.OCRD",
+		"applicationType": "URL",
+		"url": "/app/OCRD",
+		"description": "Search, modify BP",
+		"title": "Businss Partners"
+	},
+	"OITM-App": {
+		"additionalInformation": "SAPUI5.Component=c1.app.OITM",
+		"applicationType": "URL",
+		"url": "/app/OITM",
+		"description": "Search, modify Items",
+		"title": "Items Master Data"
+	},	
+	"OADM-App": {
+		"additionalInformation": "SAPUI5.Component=c1.app.OADM",
+		"applicationType": "URL",
+		"url": "/app/OADM",
+		"description": "Display Format...",
+		"title": "General Settings"
+	},
+	"CINF-App": {
+		"additionalInformation": "SAPUI5.Component=c1.app.CINF",
+		"applicationType": "URL",
+		"url": "/app/CINF",
+		"description": "Company Name, Address",
+		"title": "Company Settings"
+	}	
+}

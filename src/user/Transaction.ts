@@ -18,7 +18,7 @@ export class RepoHandlerImpl implements RepositoryHandler {
     async execute(sql: string, ...params: any): Promise<any> {
 		var conn:Connection = getConnection(sessionRead);
 		console.log(sql);
-		var rt = await conn.execute(sql, params[0]);
-		return rt.recordset;
+		var rt = await conn.executeQuery(sql, params[0]);
+		return rt;
     }
 }

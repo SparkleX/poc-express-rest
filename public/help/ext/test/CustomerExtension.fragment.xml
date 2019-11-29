@@ -1,0 +1,6 @@
+<core:FragmentDefinition
+	fragmentName="aaa"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Button id="ByName" text="Sort by Name" press=".extension.sap.my.FirstExtension.onPress" />
+</core:FragmentDefinition>

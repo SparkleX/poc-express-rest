@@ -1,0 +1,155 @@
+<mvc:View 
+	id="idBpDetail"
+	controllerName="c1.app.ORDR.controller.Detail"
+	xmlns:uxap="sap.uxap"
+	xmlns:m="sap.m"
+	xmlns:layout="sap.ui.layout"
+	xmlns:table="sap.ui.table"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:semantic="sap.m.semantic"
+	xmlns:widget="c1.core.widget"
+	displayBlock="true">
+	<!-- <semantic:FullscreenPage title="{i18n>detail/title}" showNavButton="true" navButtonPress="onNavBack" showFooter="false" titleLevel="H1">
+		<semantic:content> -->
+			<uxap:ObjectPageLayout id="objectPageLayout" showTitleInHeaderContent="true" alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false" headerContentPinnable="true" isChildPage="true" enableLazyLoading="false" upperCaseAnchorBar="false">
+				<uxap:headerTitle>
+					<uxap:ObjectPageDynamicHeaderTitle areaShrinkRatio="1:1.6:1.6">
+						<uxap:expandedHeading>
+							<m:Title text="Sales Order" wrapping="true" />
+						</uxap:expandedHeading>
+
+						<uxap:snappedHeading>
+							<m:Title text="Sales Order" wrapping="true" />
+						</uxap:snappedHeading>
+
+						<uxap:expandedContent>
+							<m:Text text="{/id}" />
+						</uxap:expandedContent>
+
+						<uxap:snappedContent>
+							<m:Text text="{/id}" />
+						</uxap:snappedContent>
+
+						<uxap:actions>
+							<uxap:ObjectPageHeaderActionButton id="editButton" text="Edit" type="Emphasized" hideText="false" press="onEdit"/>
+							<uxap:ObjectPageHeaderActionButton id="newButton"  text="New" hideText="false" hideIcon="true"  press="onNew"/>
+							<uxap:ObjectPageHeaderActionButton id="deleteButton"  text="Delete" hideText="false" hideIcon="true"  press="onDelete"/>
+							<uxap:ObjectPageHeaderActionButton id="testButton"  text="Test" hideText="false" hideIcon="true"  press="onTest"/>
+							<uxap:ObjectPageHeaderActionButton text="Change" hideText="false" press="onChange"/>
+						</uxap:actions>
+						<uxap:navigationActions>
+							<uxap:ObjectPageHeaderActionButton icon="sap-icon://synchronize" tooltip="First" press="onRefresh"/>
+							<uxap:ObjectPageHeaderActionButton icon="sap-icon://slim-arrow-up"  tooltip="Previous" press="onPrev"/>
+							<uxap:ObjectPageHeaderActionButton icon="sap-icon://slim-arrow-down"  tooltip="Next"  press="onNext"/>
+						</uxap:navigationActions>
+					 <!--	<uxap:content>
+							<uxap:ObjectPageHeaderActionButton icon="sap-icon://slim-arrow-up" type="Transparent" tooltip="slim-arrow-up" />
+							<uxap:ObjectPageHeaderActionButton icon="sap-icon://slim-arrow-down" type="Transparent" tooltip="slim-arrow-down" />
+						</uxap:content> -->
+					</uxap:ObjectPageDynamicHeaderTitle>
+				</uxap:headerTitle>
+
+				<uxap:sections>
+					<uxap:ObjectPageSection id="idSectionA" title="AAA">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection id="idGeneralPage" title="General">
+								<uxap:blocks>
+									<layout:BlockLayout>
+										<layout:BlockLayoutRow>
+											<layout:BlockLayoutCell title="Basic Information">
+												<widget:LabelLinkInput id="idTest" label="Business Partner Code" type="Number" dataValue="{/bpId}" dataFormat = "ORDR.bpId"/>
+											</layout:BlockLayoutCell>
+											<layout:BlockLayoutCell	title="Logistics">
+												<m:ComboBox id="test">
+													
+												</m:ComboBox>
+												<widget:LabelSelect  label="Ship To" dataValue="{/docStatus}" dataFormat="ORDR.docStatus" dataChange="onAddressChange"/>
+												<widget:LabelTextArea label="Address" dataValue="{/docStatus}"/>
+											</layout:BlockLayoutCell>												
+											<layout:BlockLayoutCell	title="Status">
+												<widget:LabelFormatInput label="Document Number" dataValue="{/id}" dataFormat = "ORDR.bpId"  editableAddMode="false" editableEditMode="false"/>
+												<widget:LabelDatePicker label="Document Date"  dataValue="{/createDate}" dataFormat = "ORDR.createDate"/>
+												<widget:LabelDatePicker label="Due Date"  dataValue="{/docDueDate}" dataFormat = "ORDR.docDueDate"/>
+												<widget:LabelSelect  label="Document Status" dataValue="{/docStatus}" dataFormat="ORDR.docStatus"/>
+												<widget:CheckBox dataValue="{/docStatus}" dataFormat="ORDR.docStatus" label="Closed" dataYes="C" dataNo="O"/>
+											</layout:BlockLayoutCell>										
+										</layout:BlockLayoutRow>
+									</layout:BlockLayout>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+					<uxap:ObjectPageSection id="idSectionB"  title="Details">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<uxap:blocks>
+									<widget:Grid rows="{/RDR1}">
+										<widget:columns>
+											<table:Column>
+												<m:Label text="Item" />
+												<table:template>
+													<widget:LinkInput dataValue="{itemId}" dataFormat="RDR1.itemId"/>
+												</table:template>
+											</table:Column>
+											<table:Column >
+												<m:Label text="Price" />
+												<table:template>
+													<widget:FormatInput dataValue="{price}" dataFormat="RDR1.price" dataChange="onCalcTotal"/>
+												</table:template>
+											</table:Column>
+											<table:Column>
+												<m:Label text="Quantity" />
+												<table:template>
+													<widget:FormatInput dataValue="{quantity}" dataFormat="RDR1.quantity" dataChange="onCalcTotal" />
+												</table:template>
+											</table:Column>
+											<table:Column>
+												<m:Label text="Total" />
+												<table:template>
+													<widget:FormatInput dataValue="{lineTotal}" dataFormat="RDR1.lineTotal" editableAddMode="false"/>
+												</table:template>
+											</table:Column>
+										</widget:columns>
+									</widget:Grid>
+								</uxap:blocks>
+                                </uxap:ObjectPageSubSection>
+                            </uxap:subSections>
+                        </uxap:ObjectPageSection>
+                        <uxap:ObjectPageSection title="Accounting">
+                            <uxap:subSections>
+                                <uxap:ObjectPageSubSection>
+                                    <uxap:blocks>
+                                    </uxap:blocks>
+                                </uxap:ObjectPageSubSection>
+                            </uxap:subSections>
+                        </uxap:ObjectPageSection>
+                        <uxap:ObjectPageSection title="Summary">
+                            <uxap:subSections>
+                                <uxap:ObjectPageSubSection>
+                                    <uxap:blocks>
+										<layout:BlockLayout>
+											<layout:BlockLayoutRow>
+												<layout:BlockLayoutCell>
+												</layout:BlockLayoutCell>
+												<layout:BlockLayoutCell title="Summary">
+													<widget:LabelFormatInput label="Document Total"  dataFormat="ORDR.docTotal" dataValue="{/docTotal}"  editableAddMode="false"/>
+												</layout:BlockLayoutCell>
+											</layout:BlockLayoutRow>
+										</layout:BlockLayout>
+                                     </uxap:blocks>
+                                 </uxap:ObjectPageSubSection>
+                             </uxap:subSections>
+                         </uxap:ObjectPageSection>
+                     </uxap:sections>
+                     <uxap:footer>
+                         <m:OverflowToolbar>
+                             <m:ToolbarSpacer />
+                             <m:Button type="Emphasized" text="Save" press="onSave"/>
+                             <m:Button type="Default" text="Cancel" press="onCancel"/>
+                         </m:OverflowToolbar>
+                     </uxap:footer>
+                 </uxap:ObjectPageLayout>
+             	<!-- </semantic:content>
+         </semantic:FullscreenPage>-->
+     </mvc:View>

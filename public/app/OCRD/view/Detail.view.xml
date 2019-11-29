@@ -1,0 +1,126 @@
+<mvc:View id="idBpDetail" controllerName="c1.app.OCRD.controller.Detail"
+		  xmlns:uxap="sap.uxap"
+		  xmlns:m="sap.m"
+		  xmlns:layout="sap.ui.layout"
+		  xmlns:table="sap.ui.table"
+		  xmlns:mvc="sap.ui.core.mvc"
+		  xmlns:widget="c1.core.widget"
+		  displayBlock="true">
+<!-- 	<semantic:FullscreenPage title="{i18n>detail/title}" showNavButton="true" navButtonPress="onNavBack" showFooter="false" titleLevel="H1">
+		<semantic:content> 		
+		</semantic:content>
+	</semantic:FullscreenPage>
+-->
+			<uxap:ObjectPageLayout id="objectPageLayout" showTitleInHeaderContent="true" alwaysShowContentHeader="false" preserveHeaderStateOnScroll="false" headerContentPinnable="true" isChildPage="true" enableLazyLoading="false" upperCaseAnchorBar="false">
+				<uxap:headerTitle>
+					<uxap:ObjectPageDynamicHeaderTitle areaShrinkRatio="1:1.6:1.6">
+						<uxap:expandedHeading>
+							<m:Title text="Business Partner" wrapping="true" />
+						</uxap:expandedHeading>
+
+						<uxap:snappedHeading>
+							<m:Title text="Business Partner" wrapping="true" />
+						</uxap:snappedHeading>
+
+						<uxap:expandedContent>
+							<m:Text text="{/id}" />
+						</uxap:expandedContent>
+
+						<uxap:snappedContent>
+							<m:Text text="{/id}" />
+						</uxap:snappedContent>
+
+						<uxap:actions>
+							<uxap:ObjectPageHeaderActionButton id="editButton" text="Edit" type="Emphasized" hideText="false" press="onEdit" />
+							<uxap:ObjectPageHeaderActionButton id="newButton" type="Transparent" text="New" hideText="false" hideIcon="true" press="onNew" />
+							<uxap:ObjectPageHeaderActionButton id="deleteButton" type="Transparent" text="Delete" hideText="false" hideIcon="true" press="onDelete" />
+							<uxap:ObjectPageHeaderActionButton id="testButton" type="Transparent" text="Test" hideText="false" hideIcon="true" press="onTest" />
+
+						</uxap:actions>
+						<uxap:navigationActions>
+							<uxap:ObjectPageHeaderActionButton icon="sap-icon://synchronize" type="Transparent" tooltip="First" press="onRefresh" />
+							<uxap:ObjectPageHeaderActionButton icon="sap-icon://slim-arrow-up" type="Transparent" tooltip="Previous" press="onPrev" />
+							<uxap:ObjectPageHeaderActionButton icon="sap-icon://slim-arrow-down" type="Transparent" tooltip="Next" press="onNext" />
+
+						</uxap:navigationActions>
+					</uxap:ObjectPageDynamicHeaderTitle>
+				</uxap:headerTitle>
+
+				<uxap:sections>
+					<uxap:ObjectPageSection id="idSectionA" title="AAA">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection id="idGeneralPage" title="General">
+								<uxap:blocks>
+									<layout:BlockLayout>
+										<layout:BlockLayoutRow>
+											<layout:BlockLayoutCell title="Basic Information">
+												<widget:LabelFormatInput label="Business Partner Code" dataValue="{/bpCode}" dataFormat="OCRD.bpCode"/>
+												<widget:LabelFormatInput label="Business Partner Name" dataValue="{/bpName}" dataFormat="OCRD.bpName"/>
+											</layout:BlockLayoutCell>
+											<layout:BlockLayoutCell title="Basic Information">
+												<widget:LabelSelect label="Business Partner Type" dataValue="{/bpType}" dataFormat="OCRD.bpType"/>
+											</layout:BlockLayoutCell>											
+										</layout:BlockLayoutRow>
+										
+									</layout:BlockLayout>									
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+					<uxap:ObjectPageSection title="Address">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<uxap:blocks>
+									<widget:Grid rows="{/CRD1}">
+										<widget:columns>
+											<table:Column>
+												<m:Label text="Default" />
+												<table:template>
+													<m:RadioButton text="" selected="{= ${dfltAddr} === 'Y'}" select="onDefaultAddress"/>
+												</table:template>
+											</table:Column>
+											<table:Column>
+												<m:Label text="Name" />
+												<table:template>
+													<widget:FormatInput dataValue="{name}" dataFormat="CRD1.name"/>
+												</table:template>
+											</table:Column>
+											<table:Column >
+												<m:Label text="Address" />
+												<table:template>
+													<widget:FormatInput dataValue="{address}" dataFormat="CRD1.address"/>
+												</table:template>
+											</table:Column>
+										</widget:columns>
+									</widget:Grid>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+					<uxap:ObjectPageSection title="Accounting">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<uxap:blocks>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+					<uxap:ObjectPageSection title="Summary">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<uxap:blocks>									
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+				</uxap:sections>
+				<uxap:footer>
+					<m:OverflowToolbar>
+						<m:ToolbarSpacer />
+						<m:Button type="Emphasized" text="Save" press="onSave" />
+						<m:Button type="Default" text="Cancel" press="onCancel" />
+					</m:OverflowToolbar>
+				</uxap:footer>
+			</uxap:ObjectPageLayout>
+
+</mvc:View>

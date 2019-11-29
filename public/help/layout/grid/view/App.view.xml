@@ -1,0 +1,33 @@
+<mvc:View 
+	controllerName="c1.app.controller.App"
+	xmlns:m="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:widget="c1.core.widget"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<l:Grid>
+		<m:VBox>
+			<m:Label text="label1"/>
+			<m:Input value="Input1"/>
+			<m:Input value="Input2"/>
+			<m:Label text="label2"/>
+			<m:Button text="Test"/>
+			<m:Input value="Input1"/>
+		</m:VBox>
+		<m:VBox>
+			<m:Label text="label1"/>
+			<m:Input value="Input1"/>
+			<m:Input value="Input2"/>
+			<m:Label text="label2"/>
+		</m:VBox>
+		<m:VBox>
+			<m:Label text="label1"/>
+			<m:Input value="Input1"/>
+			<m:Input value="Input2"/>
+			<m:Label text="label2"/>
+			<m:Button text="Test"/>
+			<m:Input value="Input1"/>
+		</m:VBox>
+	</l:Grid>
+</mvc:View>

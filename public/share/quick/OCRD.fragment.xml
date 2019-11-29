@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover title="Business Partner" class="sapUiContentPadding" placement="Bottom">
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />
+				<Link text="Go" target="_blank" href="/#OCRD-App&amp;/detail/{/id}" />
+			</Toolbar>
+		</footer>
+		<Label text="Basic Information" width="100%" />
+		<Text  text="{/bpCode}" width="100%" />
+		<Text  text="{/bpName}" width="100%" />
+		<Label text="Address" width="100%" />
+	</Popover>
+</core:FragmentDefinition>

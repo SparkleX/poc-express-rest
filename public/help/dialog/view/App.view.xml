@@ -1,0 +1,10 @@
+<mvc:View 
+	controllerName="c1.app.controller.App"
+	id="view"
+	xmlns:m="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
+	<m:Button text="Test" press=".onTest"/>
+	<m:Input value="{/a}"/>
+	<m:Input value="{/a}"/>			
+</mvc:View>

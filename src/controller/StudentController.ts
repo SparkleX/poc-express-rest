@@ -1,7 +1,7 @@
 import {controller,httpGet, httpPost, httpPut, httpDelete, requestParam, BaseHttpController, request} from "inversify-express-utils";
 import {Transaction} from "../user/Transaction"
 import {StudentRepo } from "../repository/StudentRepo";
-import { Student } from "../domain/Student";
+import { Student } from "../models/Student";
 import * as express from "express"
 import { inject} from "inversify";
 import {TYPES} from "../Types"

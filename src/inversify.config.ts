@@ -5,7 +5,7 @@ import {RepositoryFactory } from "core-repository";
 import { TYPES } from "./Types";
 import "./repository"
 import { StudentRepo } from "./repository/StudentRepo";
-import { Student } from "./domain/Student";
+import { Student } from "./models/Student";
 //
 
 

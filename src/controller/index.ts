@@ -1,1 +1,2 @@
 import "./StudentController";
+import "./MetadataController";

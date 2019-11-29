@@ -1,0 +1,70 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "app.logistics.bp",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"libs": {
+		"sap.ui.layout": {}
+	},	
+	"sap.ui": {
+		
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}		
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "c1.app.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"config": {
+			"sample": {
+				"files": [
+					"Main.view.xml",
+					"Main.controller.js",
+					"ReuseExtension.js",
+					"CustomerExtension.js",
+					"CustomerExtension.fragment.xml",
+					"OtherCustomerExtension.js",
+					"OtherCustomerExtension.fragment.xml",
+					"Component.js"
+				]
+			}
+		},
+		"extends": {
+	        "extensions": {       
+	            "sap.ui.controllerExtensions": {    
+	                "c1.app.controller.SampleExtension": {
+	                    "controllerName": "c1.app.controller.SampleExtension"
+					}
+				}
+	        }
+        },		
+		"dependencies": {
+			"minUI5Version": "1.60",
+			"libs": {
+				"sap.m": {}
+			}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "c1.app.i18n.i18n"
+				}
+			}
+		}
+	}
+}

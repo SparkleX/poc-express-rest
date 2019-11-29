@@ -1,0 +1,53 @@
+<mvc:View controllerName="c1.app.ORDR.controller.List"
+	xmlns="sap.m" xmlns:layout="sap.ui.layout"
+	xmlns:table="c1.core.ui.table" xmlns:table2="sap.ui.table"
+	xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc.View"
+	xmlns:widget="c1.core.widget" xmlns:f="sap.f"
+	xmlns:fb="sap.ui.comp.filterbar" displayBlock="true">
+	<f:DynamicPage headerExpanded="true"
+		preserveHeaderStateOnScroll="true" toggleHeaderOnTitleClick="false">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Sales Orders" />
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+		<!-- DynamicPage Header -->
+		<f:header>
+			<f:DynamicPageHeader pinnable="true">
+				<fb:FilterBar id="idFilterBar" reset="onReset" useToolbar="false" showGoOnFB="true">
+				<!-- 	<fb:filterItems>
+						<fb:FilterItem name="A" label="Name">
+							<fb:control>
+								<widget:LabelFormatInput label="Search"	dataValue="1" dataFormat="ORDR.id" />
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="B" label="Category">
+							<fb:control>
+								<widget:LabelFormatInput label="Search"	dataValue="1" dataFormat="ORDR.id" />							
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="C" label="SupplierName">
+							<fb:control>
+								<widget:LabelFormatInput label="Search"	dataValue="1" dataFormat="ORDR.id" />
+							</fb:control>
+						</fb:FilterItem> 
+					</fb:filterItems>-->
+				</fb:FilterBar>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<table:ListViewTable dataTable="ORDR" id="listTable" rows="{list>/}" rowActionCount="1"	selectionMode="MultiToggle">
+				<table:extension>
+					<OverflowToolbar>
+						<Button icon="sap-icon://add" type="Transparent"  press="onAdd" />
+						<Button icon="sap-icon://delete" type="Transparent" press="onDelete" />
+						<Button icon="sap-icon://action-settings" type="Transparent" press="onTestClick" />
+					</OverflowToolbar>
+				</table:extension>
+			</table:ListViewTable>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

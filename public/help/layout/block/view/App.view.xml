@@ -1,0 +1,40 @@
+<mvc:View 
+	controllerName="c1.app.controller.App"
+	xmlns:m="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:widget="c1.core.widget"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<l:BlockLayout>
+		<l:BlockLayoutRow>
+			<l:BlockLayoutCell title="Title1">
+				<m:Label text="label1" width="100%"/>
+				<m:Input value="Input1" width="50%"/>
+				<m:Input value="Input2" width="50%"/>
+				<m:Label text="label2"/>
+				<m:Button text="Test" width="100%"/>
+				<m:Input value="Input1"/>
+			</l:BlockLayoutCell>
+			<l:BlockLayoutCell	title="Title2">
+				<m:Label text="label1"/>
+				<m:Input value="Input1"/>
+				<m:Label text="label2"/>
+				<m:Input value="Input2"/>							
+			</l:BlockLayoutCell>
+		</l:BlockLayoutRow>
+		<l:BlockLayoutRow>
+			<l:BlockLayoutCell	title="Title3">
+				<m:Label text="label1"/>
+				<m:Input value="Input1"/>
+				<m:Input value="Input2"/>
+				<m:Label text="label2"/>
+				<m:Button text="Test"/>
+				<m:Input value="Input1"/>	
+			</l:BlockLayoutCell>
+			<l:BlockLayoutCell>
+			</l:BlockLayoutCell>
+		</l:BlockLayoutRow>	
+	</l:BlockLayout>			
+
+</mvc:View>

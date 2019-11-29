@@ -1,0 +1,6 @@
+<mvc:View controllerName="c1.app.OCRD.controller.App"
+		  xmlns="sap.m"
+		  xmlns:mvc="sap.ui.core.mvc"
+		  displayBlock="true">
+		<App id="app1"/>  
+</mvc:View>

@@ -1,0 +1,11 @@
+<mvc:View 
+	controllerName="c1.app.controller.App"
+	xmlns:m="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:widget="c1.core.widget"
+	xmlns:core="sap.ui.core">
+	<widget:Select bind="OCRD.Balance">
+		
+	</widget:Select>
+	<m:Button text="Test" press=".onTest"/>	
+</mvc:View>

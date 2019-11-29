@@ -1,0 +1,21 @@
+{
+	"$schema": "../../node_modules/db-conn/schema/table.json",
+	"name":"Account",	
+	"description":"Examination",
+	"columns": [
+		{
+			"name":"id",
+			"type":"number"
+		},
+		{
+			"name":"code",
+			"type":"string",
+			"size": 64
+		},		
+		{
+			"name":"name",
+			"type":"string",
+			"size": 64
+		}
+	]
+}

@@ -1,0 +1,12 @@
+<mvc:View 
+	controllerName="c1.app.controller.App"
+	xmlns:m="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:widget="c1.core.widget"
+	xmlns:core="sap.ui.core">
+	<m:Button text="Load Plugin" press="loadPlugin"/>
+	<m:Input value="{/value}"/>
+	<m:Button text="Test" press=".onTest"/>
+	<m:Button press="c1.app.controller.SampleExtension.onTest" text="Execute"/>
+	
+</mvc:View>
