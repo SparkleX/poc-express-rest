@@ -9,7 +9,7 @@ import { RepositoryHandler, RepositoryFactory } from "core-repository";
 var session:Namespace = createNamespace('session-namespace');
 var sessionRead:Namespace = getNamespace('session-namespace');
 
-export async function Transaction(req:Request, res:Response, next:NextFunction) {
+export function Transaction(req:Request, res:Response, next:NextFunction) {
 	return CoreTransaction(req, res, next, global['pool'], session );
 }
 

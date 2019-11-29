@@ -13,7 +13,7 @@ sap.ui.define([
 
 	var theClass =Controller.extend("c1.core.controller.BaseListController", {});
 	theClass.prototype.onInit=function() {
-		this.dataTable = "ORDR";
+		//this.dataTable = "ORDR";
 	    var that = this;
 	    var oView = this.getView();
 	    this.initFilter();
@@ -28,15 +28,15 @@ sap.ui.define([
 	}
 	theClass.prototype.initFilter=function() {
 		var oView = this.getView();
-		var oFilterBar = oView.byId("idFilterBar");
-		oFilterBar.attachSearch(this.onSearch.bind(this));
+	/*	var oFilterBar = oView.byId("idFilterBar");
+		oFilterBar.attachSearch(this.onSearch.bind(this));*/
 		var oModelFilter = new JSONModel({});
 		oView.setModel(oModelFilter,"filter");
 
         var metaTable = CoreUtil.getMdTable(this.dataTable);
         this.listColumns = ApiUtils.listView(this.dataTable);
 
-		var oInput = new sap.m.Input({value:"{filter>/$search}"});
+		/*var oInput = new sap.m.Input({value:"{filter>/$search}"});
 		var oFilterItem = new FilterItem({
 			name:"__search",
 			name:"search",
@@ -56,7 +56,7 @@ sap.ui.define([
 				
 					});	
 			oFilterBar.addFilterItem(oFilterItem);
-		}
+		}*/
 		
 	}
 	theClass.prototype.onSearch=function(evt) {

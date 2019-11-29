@@ -9,7 +9,7 @@
 	displayBlock="true">
 	<Page title="{i18n>list/title}">
 	<content>
-		<table:ListViewTable dataTable="OCRD" id="listTable" rows="{list>/}" rowActionCount="1" selectionMode="MultiToggle">
+		<table:ListViewTable dataTable="Account" id="listTable" rows="{list>/}" rowActionCount="1" selectionMode="MultiToggle">
 			<table:extension>
 				<OverflowToolbar>
 					<Button icon="sap-icon://add" type="Transparent" press="onAdd"/>

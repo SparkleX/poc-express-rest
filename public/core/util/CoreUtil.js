@@ -20,21 +20,22 @@ function(JSONModel, jQuery, ApiUtils) {
 		for(var table in theClass.metadata) {
 			var oTable = theClass.metadata[table];
 			oTable.columnMap = {};
-			for(var colIndex in oTable.column) {
-				var oColumn = oTable.column[colIndex];
-				oTable.columnMap[oColumn.id] = oColumn;
+			for(var colIndex in oTable.columns) {
+				var oColumn = oTable.columns[colIndex];
+				oTable.columnMap[oColumn.name] = oColumn;
 			}
 		}
 	}
 	theClass.initOADM=function() {
-		var data = ApiUtils.syncAjax({url: '/api/OADM/'})
-        theClass.oadm = data[0];
-        theClass.decimals.MEASURE = theClass.oadm.measureDec
-        theClass.decimals.PERCENT = theClass.oadm.percentDec;
-        theClass.decimals.QUANTITY = theClass.oadm.qtyDec;
-        theClass.decimals.RATE = theClass.oadm.rateDec;
-        theClass.decimals.SUM = theClass.oadm.sumDec;
-        theClass.decimals.PRICE = theClass.oadm.priceDec;
+		//var data = ApiUtils.syncAjax({url: '/api/OADM/'})
+		//var data = [{}];
+        //theClass.oadm = data[0];
+        theClass.decimals.MEASURE = 2
+        theClass.decimals.PERCENT = 2;
+        theClass.decimals.QUANTITY = 2;
+        theClass.decimals.RATE = 2;
+        theClass.decimals.SUM = 2;
+        theClass.decimals.PRICE = 2;
 	}
 
     theClass.getDataBindTable=function(bind){

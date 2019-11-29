@@ -5,17 +5,20 @@
 	"columns": [
 		{
 			"name":"id",
-			"type":"number"
+			"type":"number",
+			"description":"id"
 		},
 		{
 			"name":"code",
 			"type":"string",
-			"size": 64
+			"size": 64,
+			"description":"Account Code"
 		},		
 		{
 			"name":"name",
 			"type":"string",
-			"size": 64
+			"size": 64,
+			"description":"Account Name"
 		}
 	]
 }

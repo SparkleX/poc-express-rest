@@ -6,7 +6,7 @@ sap.ui.define([
 ], function (BaseDetailController, MessageToast, Fragment, JSONModel) {
 	"use strict";
 	var theClass =BaseDetailController.extend("c1.app.account.controller.Detail", {
-		dataTable:'OCRD'
+		dataTable:'Account'
 	});
 
 	theClass.prototype.onInit=function() {

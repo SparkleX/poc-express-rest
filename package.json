@@ -21,6 +21,7 @@
 		"db-conn": "0.0.5",
 		"db-conn-sqljs": "0.0.5",
 		"express": "^4.17.1",
+		"fs-readdir-promise": "^1.0.1",
 		"inversify": "^5.0.1",
 		"inversify-express-utils": "^6.3.2",
 		"morgan": "^1.9.1",

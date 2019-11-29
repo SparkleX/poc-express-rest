@@ -1,5 +1,5 @@
 const TYPES = {
-    StudentRepo: "StudentRepo",
+    AccountRepo: "StudentRepo",
 };
 
 export { TYPES };

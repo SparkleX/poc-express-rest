@@ -114,13 +114,13 @@ function(LinkInput, Select, FormatText, FormatLink) {
 		var template;
 		if(metaCol.linkTo) {
 			template = new FormatLink({
-					dataValue:`{${model}${metaCol.id}}`,
-					dataFormat:`${metaTable.id}.${metaCol.id}`
+					dataValue:`{${model}${metaCol.name}}`,
+					dataFormat:`${metaTable.id}.${metaCol.name}`
 					});
 		}else {
 			template = new FormatText({
-				dataValue:`{${model}${metaCol.id}}`,
-				dataFormat:`${metaTable.id}.${metaCol.id}`
+				dataValue:`{${model}${metaCol.name}}`,
+				dataFormat:`${metaTable.name}.${metaCol.name}`
 				});
 		}
 		return template;

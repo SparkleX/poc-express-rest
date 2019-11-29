@@ -20,10 +20,11 @@ export async function initDatabase ():Promise<ConnectionPool> {
 	var data = JSON.parse(rawdata);
 	var paramsArray = ddlBuilder.insertData(table, data);
 	for(let param of paramsArray) {
-		await conn.execute(sql, param);
+		await conn.execute(sql, param);		
 	}
-
-
+	conn.setAutoCommit(false);
+	console.dir(await conn.executeQuery("select * from Account", undefined));
+	conn.commit();
 	return pool;
 }
 

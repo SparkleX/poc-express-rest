@@ -27,7 +27,7 @@ sap.ui.define([
     }
 
     theClass.listView=function(table)  {
-        return this.syncAjax({url:`/api/list?table=${table}`});
+        return this.syncAjax({url:`/api/list/?table=${table}`});
     }
 
 	theClass.init = function (table) {

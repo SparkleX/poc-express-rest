@@ -6,7 +6,7 @@ sap.ui.define([
 	"use strict";
 
 	var theClass = Controller.extend("c1.app.account.controller.List", {
-		dataTable : "OCRD"
+		dataTable : "Account"
 	});
 	
     

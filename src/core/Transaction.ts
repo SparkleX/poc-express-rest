@@ -7,19 +7,19 @@ const sessionKey = "1f4861aa-c532-428b-aa9b-c15212c62cc0";
 
 export async function CoreTransaction(req:Request, res:Response, next:NextFunction, pool:ConnectionPool, session:Namespace) {
     var conn:Connection = await pool.getConnection();
-    session.run(function () {
+    session.run(async function () {
         session.set(sessionKey, conn);
         try{
-			conn.setAutoCommit(false);
-			next();
-			conn.commit();
+			await conn.setAutoCommit(false);
+			await next();
+			await conn.commit();
         }catch(err){
 			console.error(err);
-			conn.rollback();
+			await conn.rollback();
 			res.status(500).end(err.message);
 		}
         finally{
-			conn.close();
+			await conn.close();
 		}
 	}); 
 }
