@@ -11,6 +11,14 @@
 			"sourceMaps": true,
 			"cwd": "${workspaceRoot}",
 			"protocol": "inspector"
-		}
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Debug Tests",
+			"program": "${workspaceRoot}/node_modules/jest-cli/bin/jest.js",
+			"cwd": "${workspaceRoot}",
+			"args": ["--i", "--config", "jest.config.js"]
+		}		
 	]
 }
